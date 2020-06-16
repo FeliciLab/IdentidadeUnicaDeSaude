@@ -1,5 +1,5 @@
 .login-pf body {
-    background: url("../img/keycloak-bg.png") no-repeat center center fixed;
+    background: #E5E5E5;
     background-size: cover;
     height: 100%;
 }
@@ -110,6 +110,7 @@ div.kc-logo-text span {
     line-height: 1.2em;
     padding: 62px 10px 20px;
     white-space: normal;
+    color: green;
 }
 
 #kc-content {
