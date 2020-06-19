@@ -54,9 +54,10 @@
     <div class="container">
         <div class="bs-sidebar col-sm-3">
             <ul>
-                <li class="<#if active=='account'>active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
+                <li id="session-inicio-menu"><a href="${url.accountUrl}#session-inicio">Início</a></li>
+                <li id="session-minhaconta-menu"><a href="${url.accountUrl}#session-minhaconta">${msg("account")}</a></li>
+                <li id="session-documentos-menu"><a href="${url.accountUrl}#session-documentos">Documentos</a></li>
                 <#if features.passwordUpdateSupported><li class="<#if active=='password'>active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
-                <li class="<#if active=='totp'>active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
                 <#if features.identityFederation><li class="<#if active=='social'>active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>
                 <li class="<#if active=='sessions'>active</#if>"><a href="${url.sessionsUrl}">${msg("sessions")}</a></li>
                 <li class="<#if active=='applications'>active</#if>"><a href="${url.applicationsUrl}">${msg("applications")}</a></li>

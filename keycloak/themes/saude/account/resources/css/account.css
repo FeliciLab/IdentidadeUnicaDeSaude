@@ -3,10 +3,17 @@ html {
 }
 
 body {
-    background-color: #F9F9F9;
+    background-color: #FFF;
     margin: 0;
     padding: 0;
     height: 100%;
+}
+
+.sessao {
+    box-shadow: 3px 3px 3px 3px #E5E5E5;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 2px;
 }
 
 header .navbar {
@@ -68,7 +75,7 @@ header .navbar {
 /* Sidebar */
 
 .bs-sidebar {
-    background-color: #f9f9f9;
+    background-color: #FFF;
     padding-top: 44px;
     padding-right: 0;
     padding-left: 0;
@@ -86,12 +93,12 @@ header .navbar {
 .bs-sidebar ul li a {
     font-size: 14px;
     padding-left: 25px;
-    color: #4d5258;
+    color: #939393;
     line-height: 28px;
     display: block;
     border-width: 1px 0 1px 1px;
     border-style: solid;
-    border-color: #f9f9f9;
+    border-color: #FFF;
 }
 .bs-sidebar ul li a:hover,
 .bs-sidebar ul li a:focus {
@@ -100,12 +107,12 @@ header .navbar {
     border-right: 2px solid #aaa;
 }
 .bs-sidebar ul li.active a {
-    background-color: #c7e5f0;
-    border-color: #56bae0;
+    background-color: #E2E2E2;
+    border-color: #E2E2E2;
     font-weight: bold;
-    background-image: url(../img/icon-sidebar-active.png);
     background-repeat: no-repeat;
     background-position: right center;
+    color: #304FFE;
 }
 
 .bs-sidebar ul li.active a:hover {
@@ -200,6 +207,17 @@ header .navbar {
 #kc-form-buttons .btn-primary {
     float: right;
     margin-left: 8px;
+
+}
+
+.btn {
+    border-radius: 25px;
+}
+
+.btn-primary {
+    background-image: linear-gradient(to bottom,#304FFE 0,#304FFE 100%);
+    background-color: #304FFE !important;
+
 }
 
 /* Authenticator page */
