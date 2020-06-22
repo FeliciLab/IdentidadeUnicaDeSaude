@@ -32,17 +32,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-6 sessao">
-                <h2>Serviços autorizados</h2>
-                
-            </div>
-
-            <div class="col-md-6 sessao">
-                <h2>Histórico de sessões</h2>
-            </div>
-        </div>
     </div>
 
     <form action="${url.accountUrl}" class="form-horizontal" method="post">
