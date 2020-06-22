@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h2>${msg("sessionsHtmlTitle")}</h2>
+            <h2><span class="fa pficon-service"></span>&emsp;${msg("sessionsHtmlTitle")}</h2>
         </div>
     </div>
 

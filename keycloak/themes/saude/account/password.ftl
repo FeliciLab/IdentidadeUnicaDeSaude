@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h2>${msg("changePasswordHtmlTitle")}</h2>
+            <h2><span class="pficon-locked"></span> ${msg("changePasswordHtmlTitle")}</h2>
         </div>
         <div class="col-md-2 subtitle">
             <span class="subtitle">${msg("allFieldsRequired")}</span>

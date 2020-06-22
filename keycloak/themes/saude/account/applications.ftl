@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h2>${msg("applicationsHtmlTitle")}</h2>
+            <h2><span class="fa pficon-replicator"></span> ${msg("applicationsHtmlTitle")}</h2>
         </div>
     </div>
 

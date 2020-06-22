@@ -54,15 +54,15 @@
     <div class="container">
         <div class="bs-sidebar col-sm-3">
             <ul>
-                <li id="session-inicio-menu"><a href="${url.accountUrl}#session-inicio">Início</a></li>
-                <li id="session-minhaconta-menu"><a href="${url.accountUrl}#session-minhaconta">${msg("account")}</a></li>
-                <li id="session-documentos-menu"><a href="${url.accountUrl}#session-documentos">Documentos</a></li>
-                <#if features.passwordUpdateSupported><li class="<#if active=='password'>active</#if>"><a href="${url.passwordUrl}">Segurança</a></li></#if>
-                <#if features.identityFederation><li class="<#if active=='social'>active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>
-                <li class="<#if active=='sessions'>active</#if>"><a href="${url.sessionsUrl}">${msg("sessions")}</a></li>
-                <li class="<#if active=='applications'>active</#if>"><a href="${url.applicationsUrl}">${msg("applications")}</a></li>
-                <#if features.log><li class="<#if active=='log'>active</#if>"><a href="${url.logUrl}">${msg("log")}</a></li></#if>
-                <#if realm.userManagedAccessAllowed && features.authorization><li class="<#if active=='authorization'>active</#if>"><a href="${url.resourceUrl}">${msg("myResources")}</a></li></#if>
+                <li id="session-inicio-menu"><a href="${url.accountUrl}#session-inicio"><span class="fa fa-th-large"></span>&emsp;Início</a></li>
+                <li id="session-minhaconta-menu"><a href="${url.accountUrl}#session-minhaconta"><span class="fa pficon-user"></span>&emsp;${msg("account")}</a></li>
+                <li id="session-documentos-menu"><a href="${url.accountUrl}#session-documentos"><span class="fa pficon-repository"></span>&emsp;Documentos</a></li>
+                <#if features.passwordUpdateSupported><li class="<#if active=='password'>active</#if>"><a href="${url.passwordUrl}"><span class="pficon-locked"></span>&emsp;Segurança</a></li></#if>
+                <#if features.identityFederation><li class="<#if active=='social'>active</#if>"><a href="${url.socialUrl}"><span class="fa fa-th-large"></span>&emsp;${msg("federatedIdentity")}</a></li></#if>
+                <li class="<#if active=='sessions'>active</#if>"><a href="${url.sessionsUrl}"><span class="fa pficon-service"></span>&emsp;${msg("sessions")}</a></li>
+                <li class="<#if active=='applications'>active</#if>"><a href="${url.applicationsUrl}"><span class="fa pficon-replicator"></span>&emsp;${msg("applications")}</a></li>
+                <#if features.log><li class="<#if active=='log'>active</#if>"><a href="${url.logUrl}"><span class="fa fa-th-large"></span>&emsp;${msg("log")}</a></li></#if>
+                <#if realm.userManagedAccessAllowed && features.authorization><li class="<#if active=='authorization'>active</#if>"><a href="${url.resourceUrl}"><span class="fa fa-th-large"></span> &emsp;${msg("myResources")}</a></li></#if>
             </ul>
         </div>
 

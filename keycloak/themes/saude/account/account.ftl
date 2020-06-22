@@ -13,9 +13,17 @@
         <div class="row"> 
             <div class="sessao"> 
                 <h2>Meus dados</h2>
-                E-mail: ${(account.email!'')}<br>
-                ${msg("firstName")}: ${(account.firstName!'')}<br>
-                ${msg("lastName")}: ${(account.lastName!'')}<br>
+                <div class="row">
+                    <div class="col-md-1">
+                        <span class="fa pficon-user usuario-icone styles-img"></span>
+                    </div>
+                    <div class="col-md-11">
+                        E-mail: ${(account.email!'')}<br>
+                        ${msg("firstName")}: ${(account.firstName!'')}<br>
+                        ${msg("lastName")}: ${(account.lastName!'')}<br>
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     <div class="col-md-offset-11">
@@ -43,7 +51,7 @@
             <div class="sessao">
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>Minha conta</h2>
+                        <h2><span class="fa pficon-user"></span> Minha conta</h2>
                     </div>
                     <div class="col-md-2 subtitle">
                         <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
@@ -83,7 +91,7 @@
             <div class="sessao">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Endereço</h2><hr>
+                        <h2><span class="fa fa-map-marker"></span> Endereço</h2><hr>
                     </div>
                 </div>
 
@@ -115,7 +123,7 @@
         <div id="session-documentos" class="sessao" >
             <div class="row">
                 <div class="col-md-10">
-                    <h2>Documentos</h2>
+                    <h2><span class="fa pficon-repository"></span> Documentos</h2>
                 </div>
                 <div class="col-md-2 subtitle">
                     <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
