@@ -1,5 +1,5 @@
 .login-pf body {
-    background: #E5E5E5;
+    background: #304FFE;
     background-size: cover;
     height: 100%;
 }
@@ -110,7 +110,7 @@ div.kc-logo-text span {
     line-height: 1.2em;
     padding: 62px 10px 20px;
     white-space: normal;
-    color: green;
+    color: #ffffff;
 }
 
 #kc-content {
@@ -506,6 +506,7 @@ a.zocial  {
 
 .login-pf-page .btn-primary {
     margin-top: 0;
+    background-image: linear-gradient(to bottom,#304FFE 0,#304FFE 100%);
 }
 
 .login-pf-page .list-view-pf .list-group-item {
