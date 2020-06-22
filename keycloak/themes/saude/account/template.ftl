@@ -57,7 +57,7 @@
                 <li id="session-inicio-menu"><a href="${url.accountUrl}#session-inicio">Início</a></li>
                 <li id="session-minhaconta-menu"><a href="${url.accountUrl}#session-minhaconta">${msg("account")}</a></li>
                 <li id="session-documentos-menu"><a href="${url.accountUrl}#session-documentos">Documentos</a></li>
-                <#if features.passwordUpdateSupported><li class="<#if active=='password'>active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
+                <#if features.passwordUpdateSupported><li class="<#if active=='password'>active</#if>"><a href="${url.passwordUrl}">Segurança</a></li></#if>
                 <#if features.identityFederation><li class="<#if active=='social'>active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>
                 <li class="<#if active=='sessions'>active</#if>"><a href="${url.sessionsUrl}">${msg("sessions")}</a></li>
                 <li class="<#if active=='applications'>active</#if>"><a href="${url.applicationsUrl}">${msg("applications")}</a></li>
