@@ -16,7 +16,7 @@ services:
         MYSQL_USER: keycloak
         MYSQL_PASSWORD: password
   keycloak:
-      image: quay.io/keycloak/keycloak:latest
+      build: .
       environment:
         DB_VENDOR: MYSQL
         DB_ADDR: mysql
@@ -30,6 +30,7 @@ services:
       ports:
         - 8080:8080
       volumes:
-        - ./keycloak/:/opt/jboss/keycloak/
+        - ./saude/:/opt/jboss/keycloak/themes/saude/
+        - ./configuration/:/opt/jboss/keycloak/standalone/configuration/
       depends_on:
         - mysql
