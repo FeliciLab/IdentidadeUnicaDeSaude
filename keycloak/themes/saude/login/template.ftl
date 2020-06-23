@@ -34,7 +34,11 @@
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
-      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
+        <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
+            <img src="${url.resourcesPath}/img/logo.png" /><br><br>
+            <b>Saúde Ceará</b><br>
+            Gerenciamento de acesso e identidade
+        </div>
     </div>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
       <header class="${properties.kcFormHeaderClass!}">

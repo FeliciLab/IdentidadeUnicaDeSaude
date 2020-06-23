@@ -12,7 +12,6 @@
             <thead>
             <tr>
                 <td>${msg("ip")}</td>
-                <td>${msg("started")}</td>
                 <td>${msg("lastAccess")}</td>
                 <td>${msg("expires")}</td>
                 <td>${msg("clients")}</td>
@@ -23,7 +22,6 @@
             <#list sessions.sessions as session>
                 <tr>
                     <td>${session.ipAddress}</td>
-                    <td>${session.started?datetime}</td>
                     <td>${session.lastAccess?datetime}</td>
                     <td>${session.expires?datetime}</td>
                     <td>
