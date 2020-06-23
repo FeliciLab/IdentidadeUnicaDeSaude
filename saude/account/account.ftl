@@ -181,7 +181,7 @@
             var id = url.substring(url.lastIndexOf('/') + 1);
             
             // se não existir o id (identificador do conteúdo) o início será apresentado
-            if (id === '') {
+            if (id.length == 1) {
                 id = '#session-inicio';
             }
 
