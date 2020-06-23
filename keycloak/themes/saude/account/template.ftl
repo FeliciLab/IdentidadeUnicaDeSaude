@@ -18,6 +18,7 @@
             <script type="text/javascript" src="${url.resourcesPath}/${script}"></script>
         </#list>
     </#if>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="admin-console user ${bodyClass}">
         
