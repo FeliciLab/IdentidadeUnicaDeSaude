@@ -6,7 +6,7 @@
     <div id="session-inicio">
         <div class="row">
             <div class="col-md-10">
-                <h1>Bem-vindo ao IDSaúde</h1>
+                <h1>Bem-vindo ao ID Saúde</h1>
             </div>
         </div>
 
