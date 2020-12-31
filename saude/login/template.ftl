@@ -35,8 +35,7 @@
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
         <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
-            <img src="${url.resourcesPath}/img/logo.png" /><br><br>
-            <b>Saúde Ceará</b><br>
+            <img height="180" width="180" src="${url.resourcesPath}/img/logo.png" /><br><br>
             Gerenciamento de acesso e identidade
         </div>
     </div>
