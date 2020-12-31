@@ -26,7 +26,7 @@
         <nav class="navbar" role="navigation">
             <div class="navbar-header">
                 <div class="container">
-                    <img class="navbar-title" src="https://www.esp.ce.gov.br/wp-content/uploads/sites/78/2019/04/esp-clara-3.png" />
+                    <img class="navbar-title" src="${url.resourcesPath}/img/logo.png" />
                 </div>
             </div>
             <div class="navbar-collapse navbar-collapse-1">
