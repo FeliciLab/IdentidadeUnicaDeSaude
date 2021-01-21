@@ -35,8 +35,14 @@
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
         <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
-            <img height="180" width="180" src="${url.resourcesPath}/img/logo.png" /><br><br>
-            Gerenciamento de acesso e identidade
+            <div>
+                <div class="idsaude-body-logo">
+                    <div class="idsaude-logo-box">
+                        <div class="idsaude-logo-img idsaude-logo-src"></div>
+                    </div>
+                    <h2 style="font-weight: bolder; margin: 40px 0px 0px 0px;"> Gerenciamento de acesso e identidade </h2>
+                </div>
+            </div>
         </div>
     </div>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
