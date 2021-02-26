@@ -9,7 +9,7 @@
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
+                    <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" required />
                 </div>
             </div>
 
@@ -18,7 +18,7 @@
                     <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" />
+                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" required />
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                     <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
+                    <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" required />
                 </div>
             </div>
 
@@ -37,7 +37,8 @@
                     <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" />
+                    <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" required />
+                    <span id="username-mensagem" style="display:none;color:#f00;">CPF inválido</span>
                 </div>
             </div>
           </#if>
@@ -48,7 +49,7 @@
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"/>
+                    <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password" required/>
                 </div>
             </div>
 
@@ -57,7 +58,7 @@
                     <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
+                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" required/>
                 </div>
             </div>
             </#if>
@@ -78,13 +79,11 @@
                 </div>
 
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
+                    <input id="button-submit" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
                 </div>
             </div>
         </form>
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script>
             $(document).ready(function() {
                 //somente número de cpf no username 
@@ -94,6 +93,18 @@
                         // Filter non-digits from input value.
                         this.value = this.value.replace(/\D/g, '');
                     }
+                });
+
+                $('input[name="username"]').blur(function() {  
+                    let cpf = $(this).val();    
+                    if (!isValidCPF(cpf)) {
+                        $('#username-mensagem').show('slow'); 
+                        $(this).focus();  
+                        $('#button-submit').prop('disabled', true);
+                    } else {
+                        $('#username-mensagem').hide('slow');
+                        $('#button-submit').prop('disabled', false);
+                    }              
                 });
             });
         </script>
