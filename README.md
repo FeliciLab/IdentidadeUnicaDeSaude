@@ -2,7 +2,7 @@
 
 O IDSaúde é um sistema de cadastro de Identidade Digital, usado como meio de acesso do usuário aos serviços digitais à ele integrados. Apresenta a proposta de garantir a identificação de cada cidadão que acessa os serviços dos sistemas da ESP/CE.
 
-Com um único login e senha a pessoa usuária pode utilizar todos os serviços públicos digitais que estejam integrados com o IDSaúde. Fornece um nível de segurança compatível com o grau de exigência, natureza e criticidade dos dados e das informações pertinentes ao serviço público solicitado.
+Com um único login, o usuário pode utilizar todos os serviços públicos digitais que estejam integrados com o IDSaúde. Fornece um nível de segurança compatível com o grau de exigência, natureza e criticidade dos dados e das informações pertinentes ao serviço público solicitado.
 
 No IDSaúde se considera tanto a necessidade de estruturar um cadastro robusto que sirva para subsidiar a construção de políticas públicas eficazes de saúde, quanto o acolhimento dos profissionais de saúde em suas necessidades de formação e outras demandas.
 
