@@ -118,18 +118,6 @@
                     <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>CPF</h2><hr>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-12">
-                    <label for="user.attributes.CPF" class="control-label">CPF</label>
-                    <input type="text" class="form-control" id="user.attributes.CPF" name="user.attributes.CPF" value="${(account.attributes.CPF!'')}"/>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -216,6 +204,16 @@
                     $('#form-botao').show();
                 }
             }
+
+
+            //somente número de cpf no username 
+            $('input[name="username"]').keyup(function(e) {
+                if (/\D/g.test(this.value))
+                {
+                    // Filter non-digits from input value.
+                    this.value = this.value.replace(/\D/g, '');
+                }
+            });
         });
     </script>
 </@layout.mainLayout>
