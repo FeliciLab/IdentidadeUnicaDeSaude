@@ -14,6 +14,7 @@
                     <#else>
                         <input type="text" id="username" name="username" class="${properties.kcInputClass!}" autofocus/>
                     </#if>
+                    <span id="mensagem-username-invalido" style="display:none;color:#f00">CPF ou E-mail não encontrados na base de dados do IDSaúde</span>
                 </div>
             </div>
             <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
@@ -24,7 +25,7 @@
                 </div>
 
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}"/>
+                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" disabled="true" type="submit" id="submit" value="${msg("doSubmit")}"/>
                 </div>
             </div>
         </form>
@@ -32,3 +33,31 @@
         ${msg("emailInstruction")}
     </#if>
 </@layout.registrationLayout>
+<script>
+    $(document).ready(function() {
+        $("#username").on('keyup', function() {
+            const username = $(this).val();
+            const url = 'https://idsaudeapi.dev.org.br';
+            
+            const uri = url + '/api/user/username-existe/' + username;
+
+            const mensagem = $("#mensagem-username-invalido");
+            const botaoSubmit = $("#submit");
+
+            //mensagem.hide();
+            botaoSubmit.prop('disabled', true);
+
+            if (username != '') {
+                $.get( uri, function( data ) {
+                    if (data.existe) {
+                        mensagem.hide('slow');
+                        botaoSubmit.prop('disabled', false);
+                    } else {
+                        mensagem.show('slow');
+                        botaoSubmit.prop('disabled', true);
+                    }
+                });
+            }
+        });
+    });
+</script>

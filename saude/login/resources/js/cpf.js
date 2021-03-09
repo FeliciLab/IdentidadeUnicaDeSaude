@@ -34,7 +34,7 @@ function isValidCPF(cpf) {
 }
 
 $(document).ready(function() {
-    var options = {
+    const options = {
         onKeyPress : function(username, e, field, options) {
             $('#username').unmask();
             username.length == 11 && !isNaN(username) ? $('#username').mask('000.000.000-00', options) : $('#username').mask('A', options);
