@@ -32,3 +32,17 @@ function isValidCPF(cpf) {
     if (resto != parseInt(cpf.substring(10, 11) ) ) return false
     return true
 }
+
+$(document).ready(function() {
+    var options = {
+        onKeyPress : function(username, e, field, options) {
+            $('#username').unmask();
+            username.length == 11 && !isNaN(username) ? $('#username').mask('000.000.000-00', options) : $('#username').mask('A', options);
+        },
+        'translation': {
+            "A": { pattern: /[\w@\-.+]/, recursive: true }
+        }
+    };
+
+    $('#username').mask('A', options);
+});

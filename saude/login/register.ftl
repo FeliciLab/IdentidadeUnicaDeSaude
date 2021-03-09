@@ -3,7 +3,7 @@
     <#if section = "header">
         ${msg("registerTitle")}
     <#elseif section = "form">
-        <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
+        <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post" autocomplete="off">
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
@@ -87,13 +87,7 @@
         <script>
             $(document).ready(function() {
                 //somente número de cpf no username 
-                $('input[name="username"]').keyup(function(e) {
-                    if (/\D/g.test(this.value))
-                    {
-                        // Filter non-digits from input value.
-                        this.value = this.value.replace(/\D/g, '');
-                    }
-                });
+                 $('input[name="username"]').mask('000.000.000-00', {reverse: true});
 
                 $('input[name="username"]').blur(function() {  
                     let cpf = $(this).val();    
