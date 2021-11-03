@@ -558,8 +558,21 @@ form#kc-select-back-form div.login-pf-social-section {
     background-image: url('../img/logo.png')
 }
 
+.idsaude-subtitle {
+    border-bottom: 1px solid #E8E8E8; 
+    padding-bottom: 20px;
+}
+
 @media (max-width: 768px) {
     .idsaude-logo-src {
         background-image: url('../img/logo-nomepreto.png')
     }   
+}
+
+#kc-oauth h3 {
+    display: none;
+}
+
+#kc-oauth ul {
+    display: none;
 }

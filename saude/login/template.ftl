@@ -47,6 +47,7 @@
     </div>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
       <header class="${properties.kcFormHeaderClass!}">
+       
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
             <div id="kc-locale">
                 <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
@@ -61,7 +62,9 @@
                 </div>
             </div>
         </#if>
+
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
+
             <#if displayRequiredFields>
                 <div class="${properties.kcContentWrapperClass!}">
                     <div class="${properties.kcLabelWrapperClass!} subtitle">
@@ -72,7 +75,30 @@
                     </div>
                 </div>
             <#else>
-                <h1 id="kc-page-title"><#nested "header"></h1>
+                <div class="loginOrRegisterSaude">
+                    <h1 id="kc-page-title"><strong>${msg("headerForm",(realm.displayName!''))}</strong></h1>
+                    <p class="idsaude-subtitle"><strong>ID Saúde</strong> é a solução de <strong>Identidade Digital</strong> desenvolvida para apoiar a transformação digital da saúde no estado do Ceará.</p>
+                    <span>Através da ID Saúde as pessoas poderão acessar, com uma única senha, 
+                        <strong>todas as ferramentas digitais desenvolvidas pela Escola de Saúde Pública do Ceará</strong>. 
+                    </span>
+                </div>
+
+                <div id="grantSaude">
+                    <h1 id="kc-page-title"><strong>${msg("headerForm",(realm.displayName!''))}</strong></h1>
+                    <p  class="idsaude-subtitle">Ao utilizar a ID Saúde, você está cadastrando suas informações num único lugar, seguro e sob seu controle.</p>
+                    
+                        <span>
+                        Quando você utilizar sua identidade em novos Serviços, será solicitada sua autorização para o compartilhamento
+                        dos seus dados com o serviço, evitando o preenchimento repetitivo das mesmas informações.
+                        </span>
+                   
+                        <span>
+                        Este fluxo, comum em grandes plataformas e redes sociais, é também um requisito para a proteção de
+                        dados pessoais, uma vez que a autorização poderá ser revogada pela pessoa no próprio ID Saúde,
+                         a qualquer momento.
+                        </span>
+                    
+                </div>
             </#if>
         <#else>
             <#if displayRequiredFields>
@@ -124,9 +150,34 @@
                   <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
                   <span class="kc-feedback-text">${kcSanitize(message.summary)?no_esc}</span>
               </div>
-          </#if>
+          </#if>            
+          <!-- Button trigger modal -->
+        <p class="loginOrRegisterSaude">
+            <a class="pull-right" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Saiba mais
+            </a>
+        </p>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="collapse" id="collapseExample">
+                <div class="alert alert-info">
+                    <p>Desenvolvida pelo <strong>FeliciLab</strong>, a solução foi criada atendendo aos preceitos de proteção de dados e design centrado na experiência das pessoas.
+</p>
+                    <p>Com a ID Saúde, você terá controle pleno sobre seus dados, preservando sua autonomia para revogar essa autorização a qualquer momento, como preconiza a Lei Geral de Proteção de Dados Pessoais (LGPD).</p>
+                    <p>Aos poucos serão integradas à ID Saúde novas ferramentas da ESP, da Secretaria da Saúde do Ceará e de outras instituições parceiras.</p>
+                </div>
+            </div>    
+        </div>
+       
+    </div>
+    
+    
+    </div>
+    <div>
+    
+    </div>
+         <#nested "form">
 
-          <#nested "form">
 
           <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
           <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post" <#if displayWide>class="${properties.kcContentWrapperClass!}"</#if>>
@@ -146,6 +197,10 @@
                   </div>
               </div>
           </#if>
+
+            <div>
+                <a href="#">Termos e Uso</a>
+            </div>
         </div>
       </div>
 
