@@ -602,8 +602,15 @@ form#kc-select-back-form div.login-pf-social-section {
     .card-pf {
         background: #fff !important;
     }
+    #kc-form-login {
+        margin-left: 10px  !important;;
+    margin-right: 10px !important;;
+    }
 }
 
+.loginOrRegisterSaude {
+    padding: 10px;
+}
 #kc-oauth h3 {
     display: none;
 }

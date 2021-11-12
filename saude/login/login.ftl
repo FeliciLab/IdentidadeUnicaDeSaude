@@ -6,7 +6,17 @@
     <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
       <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
         <#if realm.password>
+        <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
+                        <div id="kc-registration">
+                            <strong>${msg("noAccount")}  </strong>
+                            <span><a tabindex="6" href="${url.registrationUrl}" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} 
+                            ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}">${msg("doRegister")}</a></span>
+                            <hr>
+                        </div>
+                  </div>
+                  
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+            <span><strong>Já tem cadastro?</strong> Faça o seu login abaixo: </span> <br><br>
                 <div class="${properties.kcFormGroupClass!}">
                     <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 
@@ -50,12 +60,7 @@
                        name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                   </div>
 
-                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
-                        <div id="kc-registration">
-                            <span><a tabindex="6" href="${url.registrationUrl}" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} 
-                            ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}">${msg("noAccount")}  ${msg("doRegister")}</a></span>
-                        </div>
-                  </div>
+                   
                   
             </form>
         </#if>
