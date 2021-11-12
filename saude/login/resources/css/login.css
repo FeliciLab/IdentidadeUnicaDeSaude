@@ -570,6 +570,9 @@ form#kc-select-back-form div.login-pf-social-section {
     .login-pf body {
         background: #FEFEFE !important;
     }
+    .login-pf {
+        background: #fff !important;
+    }
     #kc-form-wrapper {
         background: #FEFEFE !important;
         padding: 10px;
@@ -595,6 +598,9 @@ form#kc-select-back-form div.login-pf-social-section {
         border: 1px solid #c3c3c3;
         border-radius: 1px;
         margin-right: 20px !important; 
+    }
+    .card-pf {
+        background: #fff !important;
     }
 }
 
