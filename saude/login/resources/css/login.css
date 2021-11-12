@@ -567,6 +567,35 @@ form#kc-select-back-form div.login-pf-social-section {
     .idsaude-logo-src {
         background-image: url('../img/logo-nomepreto.png')
     }   
+    .login-pf body {
+        background: #FEFEFE !important;
+    }
+    #kc-form-wrapper {
+        background: #FEFEFE !important;
+        padding: 10px;
+    }
+    #kc-social-providers {
+        background: #FEFEFE !important;
+    }
+    .login-pf-accounts {
+        background: #FEFEFE !important;
+    }
+    
+    #kc-form-buttons {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #kc-info {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .login-pf-social-link {
+        margin-top: 0;
+        margin-left: 10px;
+        border: 1px solid #c3c3c3;
+        border-radius: 1px;
+        margin-right: 20px !important; 
+    }
 }
 
 #kc-oauth h3 {
