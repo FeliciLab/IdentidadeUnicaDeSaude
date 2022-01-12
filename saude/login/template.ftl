@@ -37,7 +37,6 @@
                             <div class="idsaude-logo-box">
                                 <div class="idsaude-logo-img idsaude-logo-src"></div>
                             </div>
-                            <h2 style="font-weight: bolder; margin: 40px 0px 0px 0px;"> Gerenciamento de acesso e identidade </h2>
                         </div>
                     </div>
                 </div>
@@ -70,10 +69,10 @@
                     </div>
                     <#else>
                     <div class="loginOrRegisterSaude">
-                        <h1 id="kc-page-title"><strong>${msg("headerForm",(realm.displayName!''))}</strong></h1>
                         <p class="idsaude-subtitle"><strong>ID Saúde</strong> é a solução de <strong>Identidade Digital</strong> desenvolvida para apoiar a transformação digital da saúde no estado do Ceará.</p>
                         <span>Através da ID Saúde as pessoas poderão acessar, com uma única senha, 
                         <strong>todas as ferramentas digitais desenvolvidas pela Escola de Saúde Pública do Ceará</strong>. 
+                        <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Saiba mais</a>
                         </span>
                     </div>
                     <div id="grantSaude">
@@ -131,9 +130,6 @@
                     <div class="row">
                         <!-- Button trigger modal -->
                         <p class="loginOrRegisterSaude">
-                            <a class="pull-right" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Saiba mais
-                            </a>
                         </p>
                         <div class="col-md-12">
                             <div class="collapse" id="collapseExample">
