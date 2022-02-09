@@ -6,19 +6,19 @@
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post" autocomplete="off">
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
+                    <label for="firstName" class="${properties.kcLabelClass!}">${msg("fullName")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" required />
                 </div>
             </div>
 
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
+            <div style="display: none;" class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" required />
+                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="." required />
                 </div>
             </div>
 
@@ -99,6 +99,38 @@
                         $('#username-mensagem').hide('slow');
                         $('#button-submit').prop('disabled', false);
                     }              
+                });
+                
+                function getSubName(words) {
+                    var n = words.split(" ");
+                    n= n.filter(n => n)
+                    if(n.length > 1){
+                        if(n[n.length - 1] == " "){
+                            return n[n.length];
+                        }
+                        return n[n.length - 1];
+                    }else{
+                        return '.';
+                    }
+                }
+                function removeLastNameFromFirstName(word){
+                    var lastIndex = word.lastIndexOf(" ");
+                    str = word.substring(0, lastIndex);
+                    var n = word.split(" ");
+                    n = n.filter(n => n)
+                    if(n.length > 1){
+                        return str;
+                    }else{
+                        return word;
+                    }
+                }
+                
+                $('#kc-register-form').submit(function(event) {
+                    var _this = $(this);
+                    event.preventDefault();
+                    $('#lastName').val(getSubName($('#firstName').val()));
+                    $('#firstName').val(removeLastNameFromFirstName($('#firstName').val()));
+                    _this.unbind('submit').submit();
                 });
             });
         </script>
