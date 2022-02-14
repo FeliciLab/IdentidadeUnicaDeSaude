@@ -86,10 +86,24 @@
 
         <script>
             $(document).ready(function() {
+                //somente número de cpf no username 
+                 $('input[name="username"]').mask('000.000.000-00', {reverse: true});
+
+                $('input[name="username"]').blur(function() {  
+                    let cpf = $(this).val();    
+                    if (!isValidCPF(cpf)) {
+                        $('#username-mensagem').show('slow'); 
+                        $(this).focus();  
+                        $('#button-submit').prop('disabled', true);
+                    } else {
+                        $('#username-mensagem').hide('slow');
+                        $('#button-submit').prop('disabled', false);
+                    }              
+                });
                 
                 function getSubName(words) {
                     var n = words.split(" ");
-                    n= n.filter(n => n)
+                    n = n.filter(n => n)
                     if(n.length > 1){
                         if(n[n.length - 1] == " "){
                             return n[n.length];
@@ -103,9 +117,10 @@
                     var lastIndex = word.lastIndexOf(" ");
                     str = word.substring(0, lastIndex);
                     var n = word.split(" ");
-                    n = n.filter(n => n)
+                    n = n.filter(n => n);
                     if(n.length > 1){
-                        return str;
+                        n.pop();
+                        return n.join(" ");
                     }else{
                         return word;
                     }
