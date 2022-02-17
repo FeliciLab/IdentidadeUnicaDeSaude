@@ -59,5 +59,10 @@
                 });
             }
         });
+
+        $(document).on('submit', function() {
+            const botaoSubmit = $("#submit");
+            botaoSubmit.prop('disabled', true);
+        });
     });
 </script>

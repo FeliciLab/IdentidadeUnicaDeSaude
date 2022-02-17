@@ -558,8 +558,63 @@ form#kc-select-back-form div.login-pf-social-section {
     background-image: url('../img/logo.png')
 }
 
+.idsaude-subtitle {
+    border-bottom: 1px solid #E8E8E8; 
+    padding-bottom: 20px;
+}
+
 @media (max-width: 768px) {
     .idsaude-logo-src {
         background-image: url('../img/logo-nomepreto.png')
     }   
+    .login-pf body {
+        background: #FEFEFE !important;
+    }
+    .login-pf {
+        background: #fff !important;
+    }
+    #kc-form-wrapper {
+        background: #FEFEFE !important;
+        padding: 10px;
+    }
+    #kc-social-providers {
+        background: #FEFEFE !important;
+    }
+    .login-pf-accounts {
+        background: #FEFEFE !important;
+    }
+    
+    #kc-form-buttons {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #kc-info {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .login-pf-social-link {
+        margin-top: 0;
+        margin-left: 10px;
+        border: 1px solid #c3c3c3;
+        border-radius: 1px;
+        margin-right: 20px !important; 
+    }
+    .card-pf {
+        background: #fff !important;
+    }
+    #kc-form-login {
+        margin-left: 10px  !important;;
+    margin-right: 10px !important;;
+    }
+}
+
+.loginOrRegisterSaude {
+    padding: 10px;
+}
+#kc-oauth h3 {
+    display: none;
+}
+
+#kc-oauth ul {
+    display: none;
 }
