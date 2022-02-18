@@ -16,12 +16,12 @@ $(document).ready(function () {
     }
 
     $('#kc-form-login,#kc-register-form').on('submit', function( e ) { 
-        var usernameSemPontos = $("#username").val();
-        usernameSemPontos = usernameSemPontos.replace(/\./g, '');
-        usernameSemPontos = usernameSemPontos.replace(/\-/g, '');
+        var usernameSP = $("#username").val();
+        usernameSP = usernameSP.replace(/\./g, '');
+        usernameSP = usernameSP.replace(/\-/g, '');
 
-        if(isValidCPF(usernameSemPontos)) {
-            $("#username").val(usernameSemPontos);
+        if(isValidCPF(usernameSP)) {
+            $("#username").val(usernameSP);
         }
     });
 });

@@ -35,28 +35,42 @@
 </@layout.registrationLayout>
 <script>
     $(document).ready(function() {
+
+        var timeOutRequest;
+
         $("#username").on('keyup', function() {
             const username = $(this).val();
-            const url = 'https://idsaudeapi.dev.org.br';
+            const url = 'http://localhost:7000';
             
-            const uri = url + '/api/user/username-existe/' + username;
+            var usernameOk;
+            if (username.includes('.', 3) && username.includes('.', 7) && username.includes('-', 11)) {
+                var usernameSP = $("#username").val();
+                usernameSP = usernameSP.replace(/\./g, '');
+                usernameSP = usernameSP.replace(/\-/g, '');
+                usernameOk = usernameSP;
+            } else {
+                usernameOk = username;
+            }
 
             const mensagem = $("#mensagem-username-invalido");
             const botaoSubmit = $("#submit");
 
-            //mensagem.hide();
             botaoSubmit.prop('disabled', true);
-
-            if (username != '') {
-                $.get( uri, function( data ) {
-                    if (data.existe) {
-                        mensagem.hide('slow');
-                        botaoSubmit.prop('disabled', false);
-                    } else {
-                        mensagem.show('slow');
-                        botaoSubmit.prop('disabled', true);
-                    }
-                });
+            
+            clearTimeout(timeOutRequest);
+            if (usernameOk != '') {
+                timeOutRequest = setTimeout(() => { 
+                    const uri = url + '/api/user/username-existe/' + usernameOk;
+                    $.get( uri, function( data ) {
+                        if (data.existe) {
+                            mensagem.hide('slow');
+                            botaoSubmit.prop('disabled', false);
+                        } else {
+                            mensagem.show('slow');
+                            botaoSubmit.prop('disabled', true);
+                        }
+                    });
+                }, 1000);
             }
         });
 
