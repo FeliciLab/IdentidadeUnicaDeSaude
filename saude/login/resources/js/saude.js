@@ -15,7 +15,7 @@ $(document).ready(function () {
         $("#grantSaude").show();
     }
 
-    $('#kc-form-login,#kc-register-form').on('submit', function( e ) { 
+    $('#kc-form-login,#kc-register-form,#kc-update-profile-form').on('submit', function( e ) { 
         var usernameSP = $("#username").val();
         usernameSP = usernameSP.replace(/\./g, '');
         usernameSP = usernameSP.replace(/\-/g, '');
