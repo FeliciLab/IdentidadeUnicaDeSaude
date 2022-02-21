@@ -40,11 +40,10 @@
 
         $("#username").on('keyup', function() {
             const username = $(this).val();
-            const url = 'http://localhost:7000';
             
             var usernameOk;
             if (username.includes('.', 3) && username.includes('.', 7) && username.includes('-', 11)) {
-                var usernameSP = $("#username").val();
+                var usernameSP = username;
                 usernameSP = usernameSP.replace(/\./g, '');
                 usernameSP = usernameSP.replace(/\-/g, '');
                 usernameOk = usernameSP;
@@ -60,6 +59,15 @@
             clearTimeout(timeOutRequest);
             if (usernameOk != '') {
                 timeOutRequest = setTimeout(() => { 
+                    var urlIdSaude = window.location.hostname;
+                    if (urlIdSaude == 'dev.org.br') {
+                        url = 'https://idsaudeapi.dev.org.br';
+                    } else if (urlIdSaude == 'id.sus.ce.gov.br') {
+                        url = 'https://idsaudeapi.sus.ce.gov.br';
+                    } else {
+                        url = 'http://localhost:7000';
+                    }
+
                     const uri = url + '/api/user/username-existe/' + usernameOk;
                     $.get( uri, function( data ) {
                         if (data.existe) {
