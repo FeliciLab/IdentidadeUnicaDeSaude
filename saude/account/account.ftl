@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <form action="${url.accountUrl}" class="form-horizontal" method="post">
+    <form id="kc-form-account" action="${url.accountUrl}" class="form-horizontal" method="post">
         <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
         <div id="session-minhaconta">
             <div class="sessao">
@@ -160,7 +160,6 @@
         </div>
     </form>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
             hide();
@@ -172,8 +171,6 @@
             if (id.length == 1 || id.length == 0) {
                 id = '#session-inicio';
             }
-
-            console.log(id);
 
             show(id);           
 
@@ -205,15 +202,35 @@
                 }
             }
 
-
-            //somente número de cpf no username 
-            $('input[name="username"]').keyup(function(e) {
-                if (/\D/g.test(this.value))
-                {
-                    // Filter non-digits from input value.
-                    this.value = this.value.replace(/\D/g, '');
+            const options = {
+                onKeyPress : function(username, e, field, options) {
+                    $('#username').unmask();
+                    username.length == 11 && !isNaN(username) ? $('#username').mask('000.000.000-00', options) : $('#username').mask('A', options);
+                },
+                'translation': {
+                    "A": { pattern: /[\w@\-.+]/, recursive: true }
                 }
-            });
+            };
+
+            var usernameSP = $('#username').val();
+            usernameSP = usernameSP.replace(/\./g, '');
+            usernameSP = usernameSP.replace(/\-/g, '');
+            if(usernameSP.length != 11 && isNaN(usernameSP)) {
+                $('#username').val('');
+            }  
+            
+            $('#username').mask('000.000.000-00');
+
+            $('#kc-form-account').on('submit', function( e ) { 
+                var usernameSP = $("#username").val();
+                usernameSP = usernameSP.replace(/\./g, '');
+                usernameSP = usernameSP.replace(/\-/g, '');
+
+                if(isValidCPF(usernameSP)) {
+                    $("#username").val(usernameSP);
+                }
+            });   
+  
         });
     </script>
 </@layout.mainLayout>

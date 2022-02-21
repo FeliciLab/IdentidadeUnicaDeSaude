@@ -3,11 +3,14 @@
     <#if section = "header">
         ${msg("loginProfileTitle")}
     <#elseif section = "form">
+        <div class="subtitle">
+            <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
+        </div>
         <form id="kc-update-profile-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
             <#if user.editUsernameAllowed>
                 <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
                     <div class="${properties.kcLabelWrapperClass!}">
-                        <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
+                        <label for="username" class="${properties.kcLabelClass!}">${msg("username")} <span class="required">*</span></label>
                     </div>
                     <div class="${properties.kcInputWrapperClass!}">
                         <input type="text" id="username" name="username" value="${(user.username!'')}" class="${properties.kcInputClass!}"/>
@@ -16,7 +19,7 @@
             </#if>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
+                    <label for="email" class="${properties.kcLabelClass!}">${msg("email")} <span class="required">*</span></label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="email" name="email" value="${(user.email!'')}" class="${properties.kcInputClass!}" />
@@ -25,7 +28,7 @@
 
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
+                    <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")} <span class="required">*</span></label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="firstName" name="firstName" value="${(user.firstName!'')}" class="${properties.kcInputClass!}" />
@@ -34,7 +37,7 @@
 
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
+                    <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")} <span class="required">*</span></label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="lastName" name="lastName" value="${(user.lastName!'')}" class="${properties.kcInputClass!}" />
@@ -58,4 +61,17 @@
             </div>
         </form>
     </#if>
+
+    <script>
+        $(document).ready(function() {
+            var usernameSP = $('#username').val();
+            usernameSP = usernameSP.replace(/\./g, '');
+            usernameSP = usernameSP.replace(/\-/g, '');
+            if(usernameSP.length != 11 && isNaN(usernameSP)) {
+                $('#username').val('');
+            }  
+            
+            $('#username').mask('000.000.000-00');
+        });
+    </script>
 </@layout.registrationLayout>
