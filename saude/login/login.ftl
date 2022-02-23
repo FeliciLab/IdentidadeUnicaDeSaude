@@ -6,7 +6,17 @@
     <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
       <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
         <#if realm.password>
-            <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+        <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
+                        <div id="kc-registration">
+                            <strong>${msg("noAccount")}  </strong>
+                            <span><a tabindex="6" href="${url.registrationUrl}" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} 
+                            ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}">${msg("doRegister")}</a></span>
+                            <hr>
+                        </div>
+                  </div>
+                  
+            <form id="kc-form-login"  action="${url.loginAction}" method="post">
+            <span><strong>Já tem cadastro?</strong> Faça o seu login abaixo: </span> <br><br>
                 <div class="${properties.kcFormGroupClass!}">
                     <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 
@@ -46,8 +56,12 @@
 
                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                       <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                      <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                      <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
+                       name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                   </div>
+
+                   
+                  
             </form>
         </#if>
         </div>
@@ -63,9 +77,9 @@
       </div>
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
-            <div id="kc-registration">
+            <#--  <div id="kc-registration">
                 <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
-            </div>
+            </div>  -->
         </#if>
     </#if>
 
