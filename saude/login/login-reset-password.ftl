@@ -63,7 +63,7 @@
             if (usernameOk != '') {
                 timeOutRequest = setTimeout(() => { 
                     var urlIdSaude = window.location.hostname;
-                    if (urlIdSaude == 'dev.org.br') {
+                    if (urlIdSaude == 'dev.id.org.br') {
                         url = 'https://idsaudeapi.dev.org.br';
                     } else if (urlIdSaude == 'id.sus.ce.gov.br') {
                         url = 'https://idsaudeapi.sus.ce.gov.br';
