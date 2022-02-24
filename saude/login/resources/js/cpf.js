@@ -45,9 +45,11 @@ $(document).ready(function() {
     };
 
     var username = $('#username').val();
-    if(username.length == 11 && !isNaN(username)) {
-        $('#username').mask('000.000.000-00');
-    } else {
-        $('#username').mask('A', options);
-    }    
+    if (username !== undefined) {
+        if(username.length == 11 && !isNaN(username)) {
+            $('#username').mask('000.000.000-00');
+        } else {
+            $('#username').mask('A', options);
+        }   
+    }
 });
