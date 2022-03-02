@@ -617,3 +617,12 @@ form#kc-select-back-form div.login-pf-social-section {
 #kc-oauth ul {
     display: none;
 }
+
+.li-govbr {
+    display:block;
+    margin-bottom:25px;
+}
+
+#btn-govbr {
+    border-radius:100em;
+}
