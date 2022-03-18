@@ -66,7 +66,7 @@
                     if (urlIdSaude == 'dev.id.org.br') {
                         url = 'https://idsaudeapi.dev.org.br';
                     } else if (urlIdSaude == 'id.sus.ce.gov.br') {
-                        url = 'https://idsaudeapi.sus.ce.gov.br';
+                        url = 'https://idsaudeapi.inova.esp.br';
                     } else {
                         url = 'http://localhost:7000';
                     }
