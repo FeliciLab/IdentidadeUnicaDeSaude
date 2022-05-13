@@ -21,7 +21,7 @@
                     <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")} <span class="required">*</span></label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="." required />
+                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value=""/>
                 </div>
             </div>
 
@@ -113,9 +113,10 @@
                         }
                         return n[n.length - 1];
                     }else{
-                        return '.';
+                        return n[0];
                     }
                 }
+
                 function removeLastNameFromFirstName(word){
                     var lastIndex = word.lastIndexOf(" ");
                     str = word.substring(0, lastIndex);
@@ -132,8 +133,7 @@
                 $('#kc-register-form').submit(function(event) {
                     var _this = $(this);
                     event.preventDefault();
-                    $('#lastName').val(getSubName($('#firstName').val()));
-                    $('#firstName').val(removeLastNameFromFirstName($('#firstName').val()));
+                    $('#lastName').val($('#firstName').val());
                     _this.unbind('submit').submit();
                 });
             });

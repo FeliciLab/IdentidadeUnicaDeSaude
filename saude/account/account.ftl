@@ -19,8 +19,8 @@
                     </div>
                     <div class="col-md-11">
                         E-mail: ${(account.email!'')}<br>
-                        ${msg("firstName")}: ${(account.firstName!'')}<br>
-                        ${msg("lastName")}: ${(account.lastName!'')}<br>
+                        ${msg("fullName")}: ${(account.firstName!'')}<br>
+                        <#--  ${msg("lastName")}: ${(account.lastName!'')}<br>  -->
                     </div>
                 </div>
 
@@ -65,14 +65,14 @@
 
                 <div class="form-group ${messagesPerField.printIfExists('firstName','has-error')}">
                     <div class="col-md-11">
-                        <label for="firstName" class="control-label">${msg("firstName")} <span class="required">*</span></label>
+                        <label for="firstName" class="control-label">${msg("fullName")} <span class="required">*</span></label>
                         <input type="text" class="form-control" id="firstName" name="firstName" value="${(account.firstName!'')}"/>
                     </div>
                 </div>
-                <div class="form-group ${messagesPerField.printIfExists('lastName','has-error')}">
+                <div style="display: none;" class="form-group ${messagesPerField.printIfExists('lastName','has-error')}">
                     <div class="col-md-11">
                         <label for="lastName" class="control-label">${msg("lastName")} <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" value="${(account.lastName!'')}"/>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="${(account.firstName!'')}"/>
                     </div>
                 </div>
             </div>
