@@ -13,6 +13,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" required />
+                    <span id="mensagem-firstname-invalido" style="display:none;color:#f00;">${msg("invalidFirstNameMessage")}</span>
                 </div>
             </div>
 
@@ -41,7 +42,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" required />
-                    <span id="username-mensagem" style="display:none;color:#f00;">CPF inválido</span>
+                    <span id="username-mensagem" style="display:none;color:#f00;">${msg("invalidUsernameMessage")}</span>
                 </div>
             </div>
           </#if>
@@ -90,7 +91,7 @@
         <script>
             $(document).ready(function() {
                 //somente número de cpf no username 
-                 $('input[name="username"]').mask('000.000.000-00', {reverse: true});
+                $('input[name="username"]').mask('000.000.000-00', {reverse: true});
 
                 $('input[name="username"]').blur(function() {  
                     let cpf = $(this).val();    
@@ -103,6 +104,18 @@
                         $('#button-submit').prop('disabled', false);
                     }              
                 });
+
+                $('input[name="firstName"]').blur(function() {
+                    let firstName = $(this).val();
+                    if (!getSubName(firstName)) {
+                        $('#mensagem-firstname-invalido').show('slow');
+                        $(this).focus();
+                        $('#button-submit').prop('disabled', true);
+                    } else {
+                        $('#mensagem-firstname-invalido').hide('slow');
+                        $('#button-submit').prop('disabled', false);
+                    }
+                });
                 
                 function getSubName(words) {
                     var n = words.split(" ");
@@ -113,7 +126,7 @@
                         }
                         return n[n.length - 1];
                     }else{
-                        return '.';
+                        return null;
                     }
                 }
                 function removeLastNameFromFirstName(word){
