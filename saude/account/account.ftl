@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <form action="${url.accountUrl}" class="form-horizontal" method="post">
+    <form id="kc-form-account" action="${url.accountUrl}" class="form-horizontal" method="post">
         <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
         <div id="session-minhaconta">
             <div class="sessao">
@@ -118,18 +118,6 @@
                     <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>CPF</h2><hr>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-12">
-                    <label for="user.attributes.CPF" class="control-label">CPF</label>
-                    <input type="text" class="form-control" id="user.attributes.CPF" name="user.attributes.CPF" value="${(account.attributes.CPF!'')}"/>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -172,7 +160,6 @@
         </div>
     </form>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
             hide();
@@ -184,8 +171,6 @@
             if (id.length == 1 || id.length == 0) {
                 id = '#session-inicio';
             }
-
-            console.log(id);
 
             show(id);           
 
@@ -216,6 +201,36 @@
                     $('#form-botao').show();
                 }
             }
+
+            const options = {
+                onKeyPress : function(username, e, field, options) {
+                    $('#username').unmask();
+                    username.length == 11 && !isNaN(username) ? $('#username').mask('000.000.000-00', options) : $('#username').mask('A', options);
+                },
+                'translation': {
+                    "A": { pattern: /[\w@\-.+]/, recursive: true }
+                }
+            };
+
+            var usernameSP = $('#username').val();
+            usernameSP = usernameSP.replace(/\./g, '');
+            usernameSP = usernameSP.replace(/\-/g, '');
+            if(usernameSP.length != 11 && isNaN(usernameSP)) {
+                $('#username').val('');
+            }  
+            
+            $('#username').mask('000.000.000-00');
+
+            $('#kc-form-account').on('submit', function( e ) { 
+                var usernameSP = $("#username").val();
+                usernameSP = usernameSP.replace(/\./g, '');
+                usernameSP = usernameSP.replace(/\-/g, '');
+
+                if(isValidCPF(usernameSP)) {
+                    $("#username").val(usernameSP);
+                }
+            });   
+  
         });
     </script>
 </@layout.mainLayout>

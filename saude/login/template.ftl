@@ -37,6 +37,7 @@
                             <div class="idsaude-logo-box">
                                 <div class="idsaude-logo-img idsaude-logo-src"></div>
                             </div>
+                            <h2 style="font-weight: bolder; margin: 40px 0px 0px 0px;"> Gerenciamento de acesso e identidade </h2>
                         </div>
                     </div>
                 </div>
@@ -130,6 +131,7 @@
                     <div class="row">
                         <!-- Button trigger modal -->
                         <p class="loginOrRegisterSaude">
+                            
                         </p>
                         <div class="col-md-12">
                             <div class="collapse" id="collapseExample">
