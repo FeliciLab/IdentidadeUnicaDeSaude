@@ -42,7 +42,7 @@
         var timeOutRequest;
 
         $("#username").on('keyup', function() {
-            const username = $(this).unmask().val();
+            const username = $(this).cleanVal();
             const mensagem = $("#mensagem-username-invalido");
             const botaoSubmit = $("#submit");
 
