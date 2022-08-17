@@ -42,25 +42,14 @@
         var timeOutRequest;
 
         $("#username").on('keyup', function() {
-            const username = $(this).val();
-            
-            var usernameOk;
-            if (username.includes('.', 3) && username.includes('.', 7) && username.includes('-', 11)) {
-                var usernameSP = username;
-                usernameSP = usernameSP.replace(/\./g, '');
-                usernameSP = usernameSP.replace(/\-/g, '');
-                usernameOk = usernameSP;
-            } else {
-                usernameOk = username;
-            }
-
+            const username = $(this).cleanVal();
             const mensagem = $("#mensagem-username-invalido");
             const botaoSubmit = $("#submit");
 
             botaoSubmit.prop('disabled', true);
             
             clearTimeout(timeOutRequest);
-            if (usernameOk != '') {
+            if (username != '') {
                 timeOutRequest = setTimeout(() => { 
                     var urlIdSaude = window.location.hostname;
                     if (urlIdSaude == 'dev.id.org.br') {
@@ -71,7 +60,7 @@
                         url = 'http://localhost:7000';
                     }
 
-                    const uri = url + '/api/user/username-existe/' + usernameOk;
+                    const uri = url + '/api/user/username-existe/' + username;
                     $.get( uri, function( data ) {
                         if (data.existe) {
                             mensagem.hide('slow');
@@ -87,6 +76,7 @@
 
         $(document).on('submit', function() {
             const botaoSubmit = $("#submit");
+            $("#username").unmask();
             botaoSubmit.prop('disabled', true);
         });
     });
