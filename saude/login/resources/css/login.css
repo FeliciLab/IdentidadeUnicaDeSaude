@@ -311,7 +311,6 @@ a.zocial  {
 
 .zocial.facebook,
 .zocial.github,
-.zocial.google,
 .zocial.microsoft,
 .zocial.stackoverflow,
 .zocial.linkedin,
@@ -321,6 +320,21 @@ a.zocial  {
 
     box-shadow: none;
     text-shadow: none;
+}
+
+a.zocial.keycloak-oidc {
+    border-radius: 35px;
+    border-color: #fff;
+    border: none;
+    background: #fff;
+    color: #0070c4
+}
+a.zocial.google {
+    /* border-radius: 35px;
+    border-color: #fff;
+    border: none; */
+    background: rgb(40, 102, 104);
+    color: #0070c4
 }
 
 /* Copy of zocial windows classes to be used for microsoft's social provider button */
